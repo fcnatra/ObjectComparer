@@ -65,17 +65,17 @@ internal class Program
     {
         trace.Append($"{"SEARCH Method:",-16}{comparer.GetMethodInfo().Name,-40}");        
         var areEqual = list.Contains(elementToSearch, new ByteArrayEqualityComparer {Comparer = comparer});        
-        PrintResult(areEqual);
+        PrintComparissonResult(areEqual);
     }
 
     private static void Compare(byte[] a1, byte[] a2, Func<byte[]?, byte[]?, bool> comparer)
     {
         trace.Append($"{"Method:",-16}{comparer.GetMethodInfo().Name,-40}");
         bool areEqual = comparer(a1, a2);
-        PrintResult(areEqual);
+        PrintComparissonResult(areEqual);
     }
 
-    private static void PrintResult(bool areEqual)
+    private static void PrintComparissonResult(bool areEqual)
     {
         if (areEqual)   trace.Append(" Found     ");
         else            trace.Append(" Not found ");
